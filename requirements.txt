@@ -8,3 +8,4 @@ xgboost
 sqlalchemy
 psycopg2-binary
 scikit-learn==1.6.1
+python-dotenv

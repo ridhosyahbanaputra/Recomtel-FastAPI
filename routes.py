@@ -99,5 +99,9 @@ def recommend_by_id(user_id: str):
         "user_id": user_id,
         "source": "Live Supabase",
         "profile": { "device": device_raw, "usage": user_data['avg_data_usage_gb'] },
-        "recommendations": results
+        "recommendations": [
+        {"type": "classification_offer", "offer": results.get("classification_offer")},
+        {"type": "knn_offer", "offer": results.get("knn_offer")},
+        {"type": "svd_offer", "offer": results.get("svd_offer")},
+    ]
     }
