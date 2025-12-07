@@ -24,12 +24,27 @@ Checks if the server is running and accessible.
 
 ### 2. Get Recommendation byID
 
-Checks if the server is running and accessible.
+Recommend quota based on usage
 
 - **URL:** `/api/recommend/user/{user_id}`
 - **Method:** `GET`
 - **Description:** Fetches the user's profile from the Supabase database, processes the data through ML models, and returns personalized recommendations.
 
+### 3. Post questions to AI
+
+Recommend quota based on usage
+
+- **URL:** `/api/chat_query`
+- **Method:** `POST`
+- **Description:** Endpoint to request AI assistance to request internet quota recommendations based on user input.
+
+### 4. Post images to analyze quota usage
+
+Recommend quota based on image
+
+- **URL:** `/api/analyze_images`
+- **Method:** `POST`
+- **Description:** Users can request a quota usage analysis by simply uploading an image and the AI ​​will then recommend an appropriate internet quota.
 ---
 
 ## 🛠️ Tech Stack
@@ -40,6 +55,7 @@ Checks if the server is running and accessible.
 - **Database ORM:** SQLAlchemy
 - **Database:** PostgreSQL (Supabase)
 - **Machine Learning:** Scikit-Learn, XGBoost, Pandas, NumPy
+-**AI:** Google-gemini
 
 ---
 
