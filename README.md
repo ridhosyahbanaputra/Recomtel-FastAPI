@@ -64,6 +64,7 @@ Recommend quota based on image
 ```text
 recomtel-fast-api/
 ├── models/             # Pre-trained ML models (.pkl files)
+├── ai_agent.py         # Logika Klien Gemini AI (inisialisasi, matching, skema)
 ├── database.py         # Database connection logic
 ├── ml_engine.py        # Logic to load and patch ML models
 ├── routes.py           # API Endpoints
