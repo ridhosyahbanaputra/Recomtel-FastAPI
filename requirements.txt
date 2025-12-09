@@ -1,5 +1,7 @@
 fastapi
+fpdf2
 google-genai
+groq
 joblib
 numpy
 pandas

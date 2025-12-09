@@ -26,7 +26,7 @@ Checks if the server is running and accessible.
 
 Recommend quota based on usage
 
-- **URL:** `/api/recommend/user/{user_id}`
+- **URL:** `/recommend/user/{user_id}`
 - **Method:** `GET`
 - **Description:** Fetches the user's profile from the Supabase database, processes the data through ML models, and returns personalized recommendations.
 
@@ -34,7 +34,7 @@ Recommend quota based on usage
 
 Recommend quota based on usage
 
-- **URL:** `/api/chat_query`
+- **URL:** `/chat_query`
 - **Method:** `POST`
 - **Description:** Endpoint to request AI assistance to request internet quota recommendations based on user input.
 
@@ -42,9 +42,18 @@ Recommend quota based on usage
 
 Recommend quota based on image
 
-- **URL:** `/api/analyze_images`
+- **URL:** `/analyze_images`
 - **Method:** `POST`
 - **Description:** Users can request a quota usage analysis by simply uploading an image and the AI ​​will then recommend an appropriate internet quota.
+
+### 5. Ask AI to make a report
+
+Create usage reports
+
+- **URL:** `/report/user/{user_id}`
+- **Method:** `GET`
+- **Description:** Ask AI to generate a Usage report and make it a PDF.
+
 ---
 
 ## 🛠️ Tech Stack
@@ -55,6 +64,7 @@ Recommend quota based on image
 - **Database ORM:** SQLAlchemy
 - **Database:** PostgreSQL (Supabase)
 - **Machine Learning:** Scikit-Learn, XGBoost, Pandas, NumPy
+-**AI:** GROQ
 -**AI:** Google-gemini
 
 ---
@@ -63,13 +73,20 @@ Recommend quota based on image
 
 ```text
 recomtel-fast-api/
-├── models/             # Pre-trained ML models (.pkl files)
-├── ai_agent.py         # Logika Klien Gemini AI (inisialisasi, matching, skema)
-├── database.py         # Database connection logic
-├── ml_engine.py        # Logic to load and patch ML models
-├── routes.py           # API Endpoints
-├── main.py             # Entry point of the application
-├── requirements.txt    # List of dependencies
-├── .env                # Environment variables (Not uploaded to GitHub)
-└── .gitignore          # Files to ignore
+├── models/                 # Pre-trained ML models (.pkl files)
+├── services/               # Business Logic & External Integrations (NEW)
+│   ├── __init__.py         # (Important so this folder is recognized as a package)
+│   ├── gemini_vision.py    # AI Vision Logic (Image Analysis)
+│   ├── groq_chat.py        # AI Chat Logic (Raw Text)
+│   ├── offer_engine.py     # Product Matching Logic (Target Offers)
+│   ├── pdf_generator.py    # PDF Report Generation Logic
+│   └── data_analysis.py    # (Optional) User Metrics Calculation Logic
+├── venv/                   # Virtual Environment
+├── db_connection.py        # Database Connection Logic (SQLAlchemy engine)
+├── ml_engine.py            # Logic to load and process ML Models (SVD/KNN)
+├── routes.py               # Router & API Endpoint Definitions
+├── main.py                 # Application Entry Point (FastAPI app & Middleware)
+├── requirements.txt        # Python Dependencies List
+├── .env                    # Environment Variables (DB URL, API Keys) Not Sending To Github
+└── .gitignore              # Files Ignored by Git
 ```
