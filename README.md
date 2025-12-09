@@ -26,7 +26,7 @@ Checks if the server is running and accessible.
 
 Recommend quota based on usage
 
-- **URL:** `/recommend/user/{user_id}`
+- **URL:** `/api/recommend/user/{user_id}`
 - **Method:** `GET`
 - **Description:** Fetches the user's profile from the Supabase database, processes the data through ML models, and returns personalized recommendations.
 
@@ -34,7 +34,7 @@ Recommend quota based on usage
 
 Recommend quota based on usage
 
-- **URL:** `/chat_query`
+- **URL:** `/api/chat_query`
 - **Method:** `POST`
 - **Description:** Endpoint to request AI assistance to request internet quota recommendations based on user input.
 
@@ -42,7 +42,7 @@ Recommend quota based on usage
 
 Recommend quota based on image
 
-- **URL:** `/analyze_images`
+- **URL:** `/api/analyze_images`
 - **Method:** `POST`
 - **Description:** Users can request a quota usage analysis by simply uploading an image and the AI ​​will then recommend an appropriate internet quota.
 
@@ -50,7 +50,7 @@ Recommend quota based on image
 
 Create usage reports
 
-- **URL:** `/report/user/{user_id}`
+- **URL:** `/api/report/user/{user_id}`
 - **Method:** `GET`
 - **Description:** Ask AI to generate a Usage report and make it a PDF.
 

@@ -170,11 +170,11 @@ def chat_route(payload: QueryBody):
     is_report_request = any(kw in user_text_lower for kw in trigger_keywords)
 
     if is_report_request:
-        report_url = f"/report/user/{actual_user_id}" 
+        download_url = f"/api/report/user/{actual_user_id}" 
         
         return {
             "answer": "Baik, laporan pemakaian data Anda siap. Silakan klik tombol unduh di bawah.",
-            "download_url": report_url, 
+            "download_url": download_url, 
             "analysis": None,
             "recommendation": None
         }
