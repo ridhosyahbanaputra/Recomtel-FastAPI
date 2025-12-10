@@ -8,6 +8,7 @@ app = FastAPI(title="Recomtel API")
 
 origins = [
     "http://localhost:3000",
+    "https://recomtel.vercel.app/"
 ]
 
 app.add_middleware(
