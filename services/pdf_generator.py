@@ -24,7 +24,6 @@ def generate_pdf_report(report_text: str, user_data: dict) -> BytesIO:
         ("Video/Streaming", f"{user_data.get('video_pct', 0)}%"),
         ("Durasi Panggilan", f"{user_data.get('call_duration_min', 0)} menit"),
         ("Frekuensi Top-up", f"{user_data.get('topup_freq', 0)} kali"),
-        ("Risiko Churn", f"{user_data.get('churn_risk', 'Unknown')}"),
     ]
 
     label_width = 80
