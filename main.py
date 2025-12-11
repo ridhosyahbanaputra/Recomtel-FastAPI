@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from ml_engine import load_models_startup
-from routes import recommendation_router, analysis_router,analysis_chat_router
+from routers import recommendation, analysis, chat
 
 app = FastAPI(title="Recomtel API")
 
@@ -23,12 +23,12 @@ app.add_middleware(
 def startup_event():
     load_models_startup()
 
-app.include_router(recommendation_router)
+app.include_router(recommendation.router)
 
-app.include_router(analysis_router)
+app.include_router(analysis.router)
 
-app.include_router(analysis_chat_router)
+app.include_router(chat.router)
 
 @app.get("/")
 def root():
-    return {"message": "Server is running🚀"}
+    return {"Server is running"}

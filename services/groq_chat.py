@@ -69,7 +69,7 @@ def interpret_text(text: str, available_offers: List[Dict]) -> str:
             {"role": "system", "content": system_prompt}, 
             {"role": "user", "content": text}
         ],
-        temperature=0.4 
+        temperature=0.2
     )
     
     return response.choices[0].message.content
@@ -77,7 +77,7 @@ def interpret_text(text: str, available_offers: List[Dict]) -> str:
 def interpret_report_metrics(metrics: dict, available_offers: List[Dict]) -> str:
     
     offers_str = "\n".join([
-        f"- {o['name']} (Kategori: {o['category']}, Harga: {o['price']})" 
+        f"- {o['name']} (Kategori: {o['category']})" 
         for o in available_offers
     ])
 
@@ -113,7 +113,7 @@ def interpret_report_metrics(metrics: dict, available_offers: List[Dict]) -> str
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ],
-            temperature=0.2
+            temperature=0.1
         )
         return response.choices[0].message.content
     except Exception as e:
